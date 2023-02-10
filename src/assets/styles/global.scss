@@ -1,0 +1,526 @@
+$--font-path: "~element-ui/lib/theme-chalk/fonts";
+/* 改变 icon 字体路径变量，必需 */
+@import "~element-ui/packages/theme-chalk/src/index"; // 引入element-ui样式
+
+
+html {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "PingFang SC", "Noto Sans",
+    "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", sans-serif;
+  color: #303030;
+  font-size: 14px;
+  line-height: 1.35;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+body {
+  min-width: 1300px;
+}
+
+html,
+body,
+#app,
+.view-main {
+  height: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+// 自定义公共样式
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.clearfix::after {
+  content: "";
+  display: block;
+  height: 0;
+  clear: both;
+}
+
+.clearfix {
+  zoom: 1;
+}
+
+.one-line {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.detail-content {
+  padding: 10px 24px;
+  overflow-y: auto;
+  height: calc(100vh - 195px);
+  position: relative;
+}
+
+.table-wrapper {
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+// 覆盖element样式
+
+// 表格
+.el-table {
+  overflow: initial;
+
+  &.el-table--scrollable-x {
+    .el-table__fixed {
+      height: auto !important; // 此处的important表示优先于element.style
+      bottom: 17px; // 改为自动高度后，设置与父容器的底部距离，则高度会动态改变
+    }
+  }
+
+  .el-table__body-wrapper {
+    overflow-x: auto;
+  }
+
+  th {
+    background-color: #f9fafc;
+  }
+
+  th,
+  td {
+    padding: 6px 0 !important;
+  }
+
+  .el-table__expand-icon {
+    position: relative;
+    height: 11px !important;
+    width: 11px !important;
+    line-height: 10px !important;
+    border: 1px solid $--color-primary;
+    vertical-align: middle;
+    margin-right: 5px !important;
+
+    &--expanded {
+      transform: none;
+
+      i {
+        &:before {
+          content: "\e6d8" !important;
+        }
+      }
+    }
+
+    i {
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-weight: normal !important;
+      color: $--color-primary !important;
+      transform: scale(0.6);
+      font-size: 12px !important;
+      transform-origin: center;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+
+      &:before {
+        content: "\e6d9";
+      }
+    }
+  }
+}
+
+// tabs标签
+.el-tabs {
+  .el-tabs__header {
+    .el-tabs__nav-wrap {
+      &::after {
+        height: 1px;
+      }
+    }
+  }
+}
+
+// 卡片
+.el-card {
+  box-shadow: none !important;
+
+  .el-card__header {
+    padding: 8px 20px;
+    background-color: #f5f7fa;
+
+    >div {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .title {
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+//对话框
+.el-dialog {
+  .el-dialog__header {
+    padding: 15px 15px;
+    border-bottom: 1px solid #f0f0f0;
+
+    .el-dialog__title {
+      font-size: 16px;
+    }
+  }
+
+  .el-dialog__body {
+    padding: 15px;
+    max-height: 600px;
+    overflow-y: auto;
+  }
+
+  .el-dialog__footer {
+    padding: 11px 10px;
+    border-top: 1px solid #f0f0f0;
+  }
+}
+
+// 输入框标签
+.vue-tags-input {
+  .ti-input {
+    padding: 2px 8px;
+    border-radius: 2px;
+    border: 1px solid #dcdfe6;
+
+    .ti-tag {
+      background-color: $--color-primary;
+    }
+
+    input {
+      color: #606266;
+
+      &::placeholder {
+        color: #c0c4cc;
+      }
+    }
+  }
+}
+
+// 时间范围选择
+.el-date-editor {
+
+  .el-range__icon,
+  .el-range-separator,
+  .el-range__close-icon {
+    line-height: 24px;
+  }
+}
+
+// drawer抽屉
+.el-drawer__header {
+  padding: 15px 20px;
+  border-bottom: 1px solid #dcdfe6;
+  font-size: 16px;
+  color: #333;
+}
+
+.el-drawer__body {
+  overflow: auto;
+  padding-bottom: 60px;
+}
+
+// form表单
+.el-form-item__label,
+.el-form-item__content {
+  line-height: 32px !important;
+}
+
+.el-date-editor {
+  .el-range-separator {
+    line-height: 24px;
+    width: 16px;
+  }
+
+  .el-range__icon {
+    line-height: 24px;
+  }
+}
+
+.fc-theme-standard {
+  --fc-border-color: #ebeef5;
+}
+
+// 自定义表单
+$--border-color: rgba(0, 0, 0, 0.09);
+
+.global-form {
+  border: 1px solid $--border-color;
+
+  .form-rows {
+    display: flex;
+
+    .form-label {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 162px;
+      min-height: 48px;
+      background: #f9f9f9;
+      font-size: 14px;
+      font-weight: bold;
+      color: #333333;
+    }
+
+    .form-value {
+      display: flex;
+      align-items: center;
+      padding: 7px 20px;
+      box-sizing: border-box;
+      flex: 1;
+    }
+
+    &:not(:last-child) {
+      border-bottom: 1px solid $--border-color;
+    }
+
+    > :not(:last-child) {
+      border-right: 1px solid $--border-color;
+    }
+  }
+
+  > :not(:last-child) {
+    border-bottom: 1px solid $--border-color;
+  }
+}
+
+@media print {
+  .global-form {
+    position: fixed;
+    left: 0;
+    right: 0;
+    width: 100%;
+    top: 0px;
+    z-index: 99999999;
+    background: #fff;
+  }
+}
+
+.card-wrapper {
+  .card-header {
+    display: flex;
+    height: 35px;
+    align-items: center;
+    background: #f5f7fa;
+    padding-left: 15px;
+
+    .card-title {
+      position: relative;
+      padding-left: 10px;
+      font-size: 14px;
+      font-weight: bold;
+
+      &:before {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        content: "";
+        width: 2px;
+        height: 16px;
+        background: #1890ff;
+        margin: auto;
+      }
+    }
+
+    .card-description {
+      margin-left: 10px;
+      font-size: 13px;
+      color: #999999;
+    }
+  }
+
+  .card-content {
+    padding: 15px;
+  }
+}
+
+.global-drawer {
+  .el-drawer__header {
+    margin-bottom: 0;
+  }
+
+  .el-drawer__body {
+    padding: 15px 25px 60px 25px;
+  }
+
+  .footer-box {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    border-top: 1px solid #dcdfe6;
+    width: 100%;
+    text-align: right;
+    padding: 12px 40px;
+    background: #fff;
+    z-index: 9999;
+  }
+}
+
+ul {
+  padding-left: 0;
+  margin: 0;
+
+  li {
+    list-style-type: none;
+  }
+}
+
+#nprogress .bar {
+  background: #7ff2f2 !important;
+}
+
+.null-tips-view {
+  font-size: 12px;
+  color: #666;
+  text-align: center;
+  line-height: 40px;
+}
+
+.el-scrollbar__bar {
+  z-index: 9999;
+}
+
+.el-button--mini {
+  padding: 1px 5px !important;
+}
+
+.el-radio {
+  display: inline-flex;
+  align-items: center;
+}
+
+
+.paging-break {
+  height: 20px;
+}
+
+.print-label-view {
+  background: #fff;
+  padding: 5px;
+  font-size: 12px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  line-height: 1.4;
+  vertical-align: middle;
+
+  .text-center {
+    text-align: center;
+  }
+
+  .text-bottom {
+    vertical-align: bottom;
+  }
+
+  .text-top {
+    vertical-align: top;
+  }
+
+
+  &.border-not {
+
+    td,
+    table {
+      border: 0 !important;
+    }
+  }
+
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+  }
+
+  td,
+  table {
+    border: 1px solid #000;
+    font-size: 10px !important;
+  }
+}
+
+.el-message {
+  border: 0;
+  border-radius: 4px;
+  min-width: 130px;
+  padding-right: 20px;
+
+  .el-message__icon {
+    font-size: 18px;
+    margin-right: 8px;
+  }
+
+  &--success {
+    background: $--color-primary;
+
+    .el-message__content {
+      color: #fff !important;
+    }
+
+    .el-message__icon {
+      color: #fff;
+
+    }
+
+  }
+
+  &--info {
+
+    .el-message__icon {
+      color: #01d0ea;
+
+    }
+  }
+
+}
+
+// 通用视频弹框
+.video-dialog-view {
+
+  .el-dialog__body,
+  .el-dialog__header {
+    padding: 0;
+  }
+
+  .el-dialog__headerbtn {
+    width: 20px;
+    height: 20px;
+    z-index: 5;
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: 1px 1px 1px rgba($color: #000000, $alpha: 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: -8px;
+    top: -8px;
+
+    i {
+      color: #000;
+      margin-left: 1px;
+      font-size: 14px;
+    }
+  }
+
+  video {
+    display: block;
+    height: 393px;
+    outline: none;
+    background-color: #000;
+  }
+}

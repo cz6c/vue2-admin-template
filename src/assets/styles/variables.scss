@@ -1,0 +1,298 @@
+// $--color-primary: #13c2c2;
+$--color-primary: #409efe; // 主色调
+$--color-success: #52c41a;
+$--color-warning: #faad14;
+$--color-danger: #ff4d4f;
+
+$--color-text-primary: #333333;
+$--color-text-regular: #606266;
+$--color-text-secondary: #909399;
+
+$--font-weight-primary: 400;
+$--border-radius-base: 4px;
+$--color-white: #ffffff;
+$--color-primary-opacity: rgba($--color-primary, 0.15);
+
+:export {
+  primaryColor: $--color-primary;
+  primaryColorOpacity: $--color-primary-opacity;
+}
+
+// ------------- button 按钮
+// 按钮的主色调是蓝色
+$--button-border-radius: 2px;
+$--button-padding-vertical: 4px;
+$--button-padding-horizontal: 15.44px;
+$--button-small-padding-vertical: 0px;
+$--button-small-padding-horizontal: 8px;
+$--button-small-border-radius: 2px;
+$--button-small-font-size: 14px;
+
+.el-button {
+  line-height: 22px !important;
+  min-width: 32px;
+}
+
+.el-message-box__btns button:nth-child(2) {
+  margin-left: 8px !important;
+}
+
+// ------------- Notification 消息
+$--notification-width: 384px;
+$--notification-padding: 16px 24px 24px 24px;
+$--notification-group-margin-left: 8px;
+
+.el-notification__group {
+  .el-notification__content {
+    line-height: 24px;
+  }
+
+  .el-notification__closeBtn {
+    top: 16px;
+    right: 24px;
+  }
+}
+
+// ------------- Dialog 弹窗
+$--messagebox-font-size: 16px;
+$--msgbox-width: 384px;
+
+
+
+
+.el-dialog__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: initial !important;
+
+  .el-dialog {
+    margin: 0 !important;
+  }
+}
+
+// ------------- tag 标签
+$--tag-font-size: 14px;
+$--tag-border-radius: 0;
+$--tag-padding: 0 7px;
+
+.el-tag {
+  height: 28px;
+  line-height: 26px;
+}
+
+// ------------- navMenu 菜单
+$--menu-item-font-size: 16px;
+
+// ------------- dropdown 下拉菜单
+.el-dropdown-menu {
+  box-sizing: border-box;
+  margin-top: 0 !important;
+
+  &.set-dropdown {
+    height: 60vh;
+    overflow: auto;
+  }
+
+  .popper__arrow {
+    display: none !important;
+  }
+}
+
+// ------------- border 单选按钮
+.el-radio-button__inner {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 88px;
+  height: 32px;
+}
+
+// ------------- input 输入框
+$--input-height: 32px;
+// ------------- pagination 分页
+$--pagination-font-size: 14px;
+$--pagination-button-width: 24px;
+$--pagination-button-height: 24px;
+
+.el-pager {
+  li {
+    min-width: 24px !important;
+  }
+}
+
+.btn-prev,
+.btn-next {
+  min-width: 24px !important;
+}
+
+.el-pagination {
+  .el-select .el-input .el-input__inner {
+    height: 24px;
+  }
+
+  .el-input__suffix {
+    top: 3px;
+  }
+}
+
+// ------------- form 表格
+.el-form-item__label,
+.el-form-item__content {
+  line-height: 32px !important;
+  cursor: default !important;
+
+  .el-date-editor {
+    .el-range-separator {
+      line-height: 24px;
+    }
+
+    .el-range__icon {
+      line-height: 24px;
+    }
+  }
+}
+
+.el-image-viewer__wrapper {
+  z-index: 9999 !important;
+}
+
+// ------------ table
+.el-table {
+  .el-tooltip {
+    width: 100% !important;
+    min-width: initial !important;
+  }
+}
+
+// ------------ upload
+.el-upload-wrapper {
+  display: flex;
+
+  .el-upload {
+    order: -1;
+    margin-right: 10px;
+  }
+
+  .el-upload-list__item {
+    vertical-align: inherit;
+  }
+
+  .el-upload-list__item {
+    margin-bottom: 0;
+  }
+}
+
+.el-step {
+  .el-step__title {
+    font-size: 14px;
+  }
+
+  .el-step__description {
+    margin-top: 0;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+
+    .desc {
+      color: #999;
+
+      span {
+        color: $--color-primary;
+      }
+    }
+  }
+
+  .el-step__icon.is-text {
+    width: 14px;
+    height: 14px;
+    font-size: 12px;
+    margin-top: 5px;
+
+    &::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      background-color: #c0c4cc;
+      border-radius: 50%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      margin: auto;
+    }
+
+    .el-step__icon-inner:not(.el-icon-check) {
+      opacity: 0;
+    }
+  }
+
+  .el-step__head {
+    &.is-success {
+      color: $--color-primary !important;
+      border-color: $--color-primary !important;
+
+      .el-step__line {
+        background-color: $--color-primary;
+      }
+
+      .el-step__icon.is-text {
+        width: 20px;
+        height: 20px;
+        margin-top: 0;
+
+        &::before {
+          display: none;
+        }
+      }
+
+      +.el-step__main {
+
+        .el-step__title,
+        .el-step__description {
+          color: #333 !important;
+        }
+      }
+    }
+
+    &.is-process {
+      color: $--color-primary !important;
+      border-color: $--color-primary !important;
+
+      .el-step__icon.is-text {
+        &::before {
+          background-color: $--color-primary;
+        }
+      }
+
+      +.el-step__main {
+
+        .el-step__title,
+        .el-step__description {
+          color: $--color-primary !important;
+        }
+      }
+    }
+  }
+}
+
+.el-step__title.is-success,
+.el-step__description.is-success {
+  color: $--color-primary !important;
+}
+
+.el-menu--popup {
+  padding: 0;
+
+  .el-menu-item {
+    height: 44px;
+    line-height: 44px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+
+    &.is-active {
+      color: rgb(204, 63, 53) !important;
+    }
+  }
+}
